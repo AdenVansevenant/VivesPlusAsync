@@ -26,7 +26,16 @@ struct UurroosterList: View {
                         }
                         .padding(.vertical, 2)
                     }
+                    .toolbar {
+                        // plus links
+                        ToolbarItem(placement: .primaryAction) {
+                            NavigationLink(destination: AddEventView()) {
+                                Image(systemName: "plus")
+                            }
+                        }
+                    }
                 }
+                
             }
             .navigationTitle("Uurrooster")
             .task {
@@ -34,14 +43,7 @@ struct UurroosterList: View {
                 loading = false
                 selectedEventId = dataStore.uurrooster.first?.id
             }
-            .toolbar {
-                // plus links
-                ToolbarItem(placement: .primaryAction) {
-                    NavigationLink(destination: AddEventView()) {
-                        Image(systemName: "plus")
-                    }
-                }
-            }
+            
 
         } detail: {
             // RECHTERKANT
